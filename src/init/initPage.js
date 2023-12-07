@@ -6,3 +6,4 @@ async function initPage(context){
         throw new Error("can't init a new page")
     } 
 }
+module.exports = initPage
