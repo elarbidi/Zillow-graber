@@ -19,7 +19,8 @@ async function scrapZillow(type , minPrice , maxPrice){
         await page.goto('https://www.zillow.com/homes/',{waitUntil : 'load'})
         await scrollDown(page)
         const items = await searchPage(page)
-        console.log(items.length)
+        await items[0].click()
+        await page.getByText("Details",{exact : true}).click()
         console.log("finish")
 
     }catch(e){

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scrape" : "node ./src/index.js"
+    "scrape": "node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   "homepage": "https://github.com/elarbidi/Zillow-graber#readme",
   "dependencies": {
     "lodash": "^4.17.21",
-    "playwright": "^1.40.1"
+    "playwright": "^1.40.1",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
 }
