@@ -2,10 +2,16 @@ const _ = require("lodash");
 
 async function scrollDown(page) {
     try {
-        previousHeight = await page.evaluate('document.body.scrollHeight');
-        await page.evaluate('window.scrollTo(0, document.body.scrollHeight)');
-        await page.waitForFunction(`document.body.scrollHeight > ${previousHeight}`);
-        await page.waitForTimeout(_.random(3000,5000));
+        let previousHeight = 0
+        let domHight = await page.evaluate(`document.querySelector('#search-page-list-container').scrollHeight`);
+        let scrollMatrix = 100
+        while(previousHeight < domHight){
+            console.log(previousHeight , domHight)
+        await page.evaluate(`document.querySelector('#search-page-list-container').scrollTo(0, ${previousHeight})`);
+        domHight = await page.evaluate(`document.querySelector('#search-page-list-container').scrollHeight`);
+        previousHeight += _.random(100,200)
+        //await page.waitForTimeout(_.random(3000,5000));
+        }
       }catch(e) { }
   }
   

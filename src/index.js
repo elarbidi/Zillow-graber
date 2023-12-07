@@ -4,6 +4,8 @@ const initPage = require("./init/initPage")
 
 const searchPage = require("./pages/SearchPage")
 
+const scrollDown = require("./libs/scrollDown")
+
 async function scrapZillow(type , minPrice , maxPrice){
     type === undefined ? type = 'For Sale' : null
     minPrice === undefined ? minPrice = 'No Min' : null
@@ -15,6 +17,7 @@ async function scrapZillow(type , minPrice , maxPrice){
         const context = await initContext(browser)
         const page = await initPage(context)
         await page.goto('https://www.zillow.com/homes/',{waitUntil : 'load'})
+        await scrollDown(page)
         const items = await searchPage(page)
         console.log(items.length)
         console.log("finish")
